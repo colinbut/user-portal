@@ -1,31 +1,11 @@
 import React from 'react'
 import Table from './Table'
+import Form from './Form';
 
 class App extends React.Component {
 
     state = {
-        data: [
-            {
-                name: 'Colin But',
-                job: 'Software Engineer'
-            },
-            {
-                name: 'Amy Man',
-                job: 'Data Analyst'
-            },
-            {
-                name: 'Daniel But',
-                job: 'Project Manager'
-            },
-            {
-                name: 'Martin Man',
-                job: 'Application Support'
-            },
-            {
-                name: 'Christine Man',
-                job: 'UI/UX Designer'
-            }
-        ]
+        data: []
     }
 
     removeUser = index => {
@@ -38,6 +18,12 @@ class App extends React.Component {
         })
     }
 
+    addUser = user => {
+        this.setState({
+            data: [...this.state.data, user]
+        })
+    }
+
     render() {
 
         const { data } = this.state
@@ -45,6 +31,7 @@ class App extends React.Component {
         return (
             <div className="container">
                 <Table userData={data} removeUser={this.removeUser} />
+                <Form addUser={this.addUser} />
             </div>
         )
     }
