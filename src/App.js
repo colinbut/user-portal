@@ -30,6 +30,7 @@ class App extends React.Component {
 
         return (
             <div className="container">
+                <h1>User Portal</h1>
                 <Table userData={data} removeUser={this.removeUser} />
                 <Form addUser={this.addUser} />
             </div>
